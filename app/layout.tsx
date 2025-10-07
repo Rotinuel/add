@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Abuja Detty December | 9ja’s Capital biggest December Celebration — music, dance, contests, and unforgettable memories.",
-  description: "Nigeria's biggest December celebration — music, dance, contests, and unforgettable memories.",
+  description: "9ja’s Capital biggest December Celebration — music, dance, contests, and unforgettable memories.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
