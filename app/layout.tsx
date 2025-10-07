@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 
 export const metadata = {
-  // ... your metadata as-is
+  
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

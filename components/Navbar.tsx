@@ -78,7 +78,7 @@ export default function Navbar({ cartCount = 0 }) {
                     </Link>
                     <Link
                         href="/signin"
-                        className="hidden md:inline-block ml-2 border border-white/40 px-3 py-1 rounded-md hover:bg-white hover:text-green-700 transition"
+                        className="hidden md:inline-block ml-2 border text-white bg-[#488d17] border-white/40 px-3 py-1 rounded-md hover:bg-white hover:text-green-700 transition"
                     >
                         Sign in
                     </Link>
