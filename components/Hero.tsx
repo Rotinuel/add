@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Ticket, Heart } from "lucide-react";
+import Image from "next/image";
 
 const images = [
     "/background/background1.png",
@@ -49,7 +50,7 @@ export default function HeroSection() {
         <section className="relative h-[90vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
             {/* Background carousel */}
             {images.map((img, i) => (
-                <img
+                <Image
                     key={i}
                     src={img}
                     alt={`Background ${i + 1}`}
