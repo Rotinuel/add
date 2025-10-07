@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image"
 
 export default function UnforgettableEvents() {
   return (
@@ -16,7 +17,7 @@ export default function UnforgettableEvents() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {/* Example Event Card */}
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
-            <img
+            <Image
               src="/images/concert.jpg"
               alt="Concert Event"
               className="w-full h-48 object-cover rounded-xl mb-4"
@@ -30,7 +31,7 @@ export default function UnforgettableEvents() {
           </div>
 
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
-            <img
+            <Image
               src="/images/fashion.jpg"
               alt="Fashion Event"
               className="w-full h-48 object-cover rounded-xl mb-4"
@@ -44,7 +45,7 @@ export default function UnforgettableEvents() {
           </div>
 
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
-            <img
+            <Image
               src="/images/food.jpg"
               alt="Food Event"
               className="w-full h-48 object-cover rounded-xl mb-4"
