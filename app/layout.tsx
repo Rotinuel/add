@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 
 export const metadata = {
-  title: 'Abuja Detty December',
+  title: "Abuja Detty December | Nigeria's biggest December celebration — music, dance, contests, and unforgettable memories.",
   description: "Nigeria's biggest December celebration — music, dance, contests, and unforgettable memories.",
 };
 
