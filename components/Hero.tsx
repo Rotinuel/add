@@ -36,7 +36,7 @@ export default function HeroSection() {
     useEffect(() => {
         const changeImage = setInterval(() => {
             setIndex((prev) => (prev + 1) % images.length); // loops forever
-        }, 5000);
+        }, 7000);
 
         const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
 
