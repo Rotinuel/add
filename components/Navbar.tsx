@@ -37,7 +37,7 @@ export default function Navbar({ cartCount = 0 }) {
                     <div className="flex items-center space-x-2 gap-4">
                         <Link href="/" className="flex items-center">
                             <Image
-                                src="/logo.jpg"
+                                src="/logo.png"
                                 alt="abuja detty december"
                                 width={48}
                                 height={48}
