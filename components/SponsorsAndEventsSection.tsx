@@ -4,7 +4,7 @@ const sponsors = [
     { name: "Abuja Continental", logo: "/sponsors/AC.png" },
     { name: "Brave iocns", logo: "/sponsors/BRAVEICONS.png" },
     { name: "KYROS AUTOMOBILE", logo: "/sponsors/KYROS.png" },
-    { name: "PFIPC", logo: "/sponsors/pfipc.png" },
+    { name: "PFIPC", logo: "/sponsors/PFIPC.png" },
     { name: "WTC", logo: "/sponsors/WTC.png" },
 ];
 
