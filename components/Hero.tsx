@@ -73,7 +73,7 @@ export default function HeroSection() {
                 </p>
 
                 {/* Countdown */}
-                <div className="flex justify-center gap-4 mb-8">
+                <div className="flex justify-center sm:px-2 gap-4 mb-4">
                     {[
                         { label: "Days", value: timeLeft.days },
                         { label: "Hours", value: timeLeft.hours },
