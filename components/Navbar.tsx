@@ -46,7 +46,7 @@ export default function Navbar({ cartCount = 0 }) {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex space-x-6 items-center text-black font-medium">
+                    <div className="hidden lg:flex space-x-6 items-center text-black font-medium">
                         {navItems.map((item) => (
                             <Link
                                 key={item.href}
@@ -86,7 +86,7 @@ export default function Navbar({ cartCount = 0 }) {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="md:hidden text-gray-700 hover:text-[#488d17] focus:outline-none"
+                        className="lg:hidden text-gray-700 hover:text-[#488d17] focus:outline-none"
                     >
                         {menuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -96,7 +96,7 @@ export default function Navbar({ cartCount = 0 }) {
 
             {/* MOBILE MENU */}
             {menuOpen && (
-                <div className="md:hidden bg-white backdrop-blur-md border-t border-gray-200 text-black px-6 py-4 space-y-4 animate-slide-down">
+                <div className="lg:hidden bg-white backdrop-blur-md border-t border-gray-200 text-black px-6 py-4 space-y-4 animate-slide-down">
                     {navItems.map((item) => (
                         <Link
                             key={item.href}
