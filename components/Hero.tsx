@@ -55,7 +55,7 @@ export default function HeroSection() {
                     src={img}
                     alt={`Background ${i + 1}`}
                     className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${i === index ? "opacity-100" : "opacity-0"
-                        }`} width={32} height={32}
+                        }`} fill
                 />
             ))}
 

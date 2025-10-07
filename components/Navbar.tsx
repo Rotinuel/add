@@ -39,8 +39,8 @@ export default function Navbar({ cartCount = 0 }) {
                             <Image
                                 src="/logo.png"
                                 alt="abuja detty december"
-                                width={48}
-                                height={48}
+                                width={56}
+                                height={56}
                                 className="w-8 h-8 md:w-12 md:h-12 rounded-full"
                             />
                         </Link>
