@@ -67,13 +67,13 @@ export default function HeroSection() {
                 <h1 className="text-5xl md:text-7xl font-bold mb-2">
                     Abuja Detty December
                 </h1>
-                <p className="text-3xl text-[#488d17] mb-6">2025</p>
+                <p className="text-7xl text-[#488d17] mb-6">2025</p>
                 <p className="max-w-2xl mx-auto text-lg text-gray-200 mb-8">
                     Nigeria&apos;s biggest December celebration — music, dance, contests, and unforgettable memories.
                 </p>
 
                 {/* Countdown */}
-                <div className="flex justify-center sm:px-2 gap-4 mb-4">
+                <div className="flex justify-center gap-4 mb-4">
                     {[
                         { label: "Days", value: timeLeft.days },
                         { label: "Hours", value: timeLeft.hours },
