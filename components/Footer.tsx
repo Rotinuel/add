@@ -218,7 +218,7 @@ export default function Footer() {
                                 <div className="font-playfair font-bold text-xl">
                                     Abuja Detty December
                                 </div>
-                                <div className="text-gray-400 text-sm">Nigeria's Biggest December Festival</div>
+                                <div className="text-gray-400 text-sm">Nigeria&#39;s Biggest December Festival</div>
                             </div>
                         </div>
 

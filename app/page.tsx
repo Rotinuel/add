@@ -1,4 +1,4 @@
-import EventCard from "@/components/EventCard";
+// import EventCard from "@/components/EventCard";
 import Hero from "@/components/Hero";
 import SponsorsAndEventsSection from "@/components/SponsorsAndEventsSection";
 import UnforgettableEvents from "@/components/Unforgattable";
