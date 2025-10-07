@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { Ticket, Heart } from "lucide-react";
+
 import Image from "next/image";
 
 const images = [
@@ -68,6 +67,7 @@ export default function HeroSection() {
                     Abuja Detty December
                 </h1>
                 <p className="text-7xl text-[#488d17] mb-6">2025</p>
+                <p className="text-4xl text-white mb-6">Coming Soon.</p>
                 <p className="max-w-2xl mx-auto text-lg text-gray-200 mb-8">
                     Nigeria&apos;s biggest December celebration — music, dance, contests, and unforgettable memories.
                 </p>
@@ -90,28 +90,6 @@ export default function HeroSection() {
                             <p className="text-sm text-gray-300">{item.label}</p>
                         </div>
                     ))}
-                </div>
-
-                {/* Buttons */}
-                <div className="flex flex-wrap justify-center gap-4">
-                    <Link
-                        href="/tickets"
-                        className="flex items-center gap-2 bg-[#488d17] hover:bg-[#3a7412] px-6 py-3 rounded-lg font-medium"
-                    >
-                        <Ticket size={18} /> Get Tickets
-                    </Link>
-                    <Link
-                        href="/vote"
-                        className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg font-medium"
-                    >
-                        ❤️ Vote Now
-                    </Link>
-                    <Link
-                        href="/sponsor"
-                        className="flex items-center gap-2 border border-gray-200 bg-white text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium"
-                    >
-                        <Heart size={18} /> Sponsor Us
-                    </Link>
                 </div>
             </div>
         </section>

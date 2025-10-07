@@ -28,12 +28,59 @@ export default function EventsPage() {
         />
 
         <EventCard
+          date="Mon, Dec 15"
+          type="Music"
+          title="Opening Concert 2025"
+          venue="Transcorp Hilton Abuja"
+          capacity={5000}
+        />
+
+        <EventCard
+          date="Mon, Dec 15"
+          type="Music"
+          title="Opening Concert 2025"
+          venue="Transcorp Hilton Abuja"
+          capacity={5000}
+        />
+
+        <EventCard
+          date="Mon, Dec 15"
+          type="Music"
+          title="Opening Concert 2025"
+          venue="Transcorp Hilton Abuja"
+          capacity={5000}
+        />
+
+        <EventCard
+          date="Mon, Dec 15"
+          type="Music"
+          title="Opening Concert 2025"
+          venue="Transcorp Hilton Abuja"
+          capacity={5000}
+        />
+
+        <EventCard
           date="Sat, Dec 20"
           type="Festival"
           title="Abuja Detty December Festival 2025"
           venue="Transcorp Hilton Abuja"
           capacity={2000}
-          isPlaceholder={true}
+        />
+
+        <EventCard
+          date="Mon, Dec 15"
+          type="Music"
+          title="Opening Concert 2025"
+          venue="Transcorp Hilton Abuja"
+          capacity={5000}
+        />
+      
+      <EventCard
+          date="Mon, Dec 15"
+          type="Music"
+          title="Opening Concert 2025"
+          venue="Transcorp Hilton Abuja"
+          capacity={5000}
         />
       </div>
 
