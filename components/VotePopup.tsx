@@ -31,7 +31,7 @@ export default function VotePopup() {
         <div className="flex items-center mb-4">
           <Megaphone className="text-green-700 mr-2" size={24} />
           <h2 className="text-lg font-semibold text-gray-800">
-            🎉 The Abuja Detty December Raffle is Live!
+            The Abuja Detty December Raffle is Live!
           </h2>
         </div>
 
@@ -44,7 +44,7 @@ export default function VotePopup() {
           onClick={() => setIsOpen(false)}
           className="block text-center bg-green-700 text-white font-semibold py-2.5 rounded-lg hover:bg-green-800 transition"
         >
-          Start Voting
+          Get Ticket
         </Link>
       </div>
 
