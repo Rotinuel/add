@@ -69,7 +69,7 @@ export default function HeroSection() {
                 </h1>
                 <p className="text-7xl text-[#488d17] mb-6">2025</p>
                 <p className="max-w-2xl mx-auto text-lg text-gray-200 mb-8">
-                    ajuwon Nigeria&apos;s biggest December celebration — music, dance, contests, and unforgettable memories.
+                    Nigeria&apos;s biggest December celebration — music, dance, contests, and unforgettable memories.
                 </p>
 
                 {/* Countdown */}
