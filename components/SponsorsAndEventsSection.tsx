@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const sponsors = [
-    { name: "Abuja Continental", logo: "/sponsors/AC.png" },
+    // { name: "Abuja Continental", logo: "/sponsors/AC.png" },
     { name: "Brave iocns", logo: "/sponsors/BRAVEICONS.png" },
     { name: "KYROS AUTOMOBILE", logo: "/sponsors/KYROS.png" },
-    { name: "PFIPC", logo: "/sponsors/PFIPC.png" },
-    { name: "WTC", logo: "/sponsors/WTC.png" },
+    // { name: "PFIPC", logo: "/sponsors/PFIPC.png" },
+    // { name: "WTC", logo: "/sponsors/WTC.png" },
 ];
 
 export default function SponsorsAndEventsSection() {
@@ -19,7 +19,7 @@ export default function SponsorsAndEventsSection() {
                     {sponsors.map((sponsor) => (
                         <div
                             key={sponsor.name}
-                            className="bg-gray-900 hover:bg-gray-200 transition rounded-lg flex items-center justify-center h-20 w-32 md:w-40 shadow-sm"
+                            className="bg-white hover:bg-gray-200 transition rounded-lg flex items-center justify-center h-20 w-32 md:w-40 shadow-sm"
                         >
                             <Image
                                 src={sponsor.logo}

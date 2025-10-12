@@ -47,7 +47,7 @@ export default function Navbar({ cartCount = 0 }) {
                         </Link>
 
                         {/* Desktop Nav */}
-                        <div className="hidden lg:flex space-x-6 items-center text-black font-medium">
+                        <div className="hidden lg:flex space-x-4 items-center text-black font-medium">
                             {navItems.map((item) => (
                                 <Link
                                     key={item.href}
