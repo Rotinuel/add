@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { Bell, ShoppingCart, User, Menu, X } from "lucide-react";
 
 const navItems = [
+    { label: "Home", href: "/" },
     { label: "Events", href: "/events" },
     { label: "Participate", href: "/participate" },
     { label: "Vote", href: "/vote" },
