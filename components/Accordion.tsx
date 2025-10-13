@@ -87,7 +87,7 @@ const Accordion = () => {
   return (
     <section className="max-w-3xl mx-auto px-4 py-10">
       <h2 className="text-3xl font-bold text-center mb-4">Frequently Asked Questions</h2>
-      <p className="text-center text-gray-600 mb-8">Got questions? We've got answers!</p>
+      <p className="text-center text-gray-600 mb-8">Got questions? We&apos;ve got answers!</p>
       <div className="space-y-4">
         {faqs.map((item, idx) => (
           <AccordionItem
