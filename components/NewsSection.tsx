@@ -3,8 +3,8 @@ import NewsCard from "./NewsCard";
 const newsItems = [
   {
     category: "Entertainment",
-    title: "Burna Boy Confirmed as Headliner for ADD 2025 Opening Concert",
-    excerpt: "Grammy-winning artist Burna Boy will headline the opening concert of Abuja Detty December 2025, promising an unforgettable night of...",
+    title: "Grammy Nominated Artist Confirmed as Headliner for ADD 2025 Opening Concert",
+    excerpt: "Grammy-winning artist will headline the opening concert of Abuja Detty December 2025, promising an unforgettable night of...",
     date: "Fri, Aug 22",
     link: "#",
   },
@@ -17,7 +17,7 @@ const newsItems = [
   },
   {
     category: "Competition",
-    title: "Miss ADD 2025: Meet the Top 5 Finalists",
+    title: "Miss ADD 2025: Journey to Fame Begins!",
     excerpt: "After weeks of intensive competition, five outstanding young women have emerged as finalists for the Miss ADD 2025 crown.",
     date: "Fri, Aug 22",
     link: "#",
