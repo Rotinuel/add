@@ -1,4 +1,6 @@
 // import EventCard from "@/components/EventCard";
+import Accordion from "@/components/Accordion";
+import CallToAction from "@/components/CallToAction";
 import CompetitionsPage from "@/components/Competitions";
 import Hero from "@/components/Hero";
 import NewsSection from "@/components/NewsSection";
@@ -22,6 +24,8 @@ export default function Home() {
         <WhyChooseADD />
         <TestimonialsSection />
         <NewsSection />
+        <Accordion />
+        <CallToAction />
       </div>
     </div>
   );
