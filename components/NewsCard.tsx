@@ -11,8 +11,7 @@ const NewsCard = ({ image, category, title, excerpt, date, link }: NewsCardProps
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden w-full max-w-sm">
       <div className="h-48 bg-gray-200 flex items-center justify-center text-gray-400 text-sm">
-        {/* Replace with <img src={image} alt={title} /> when using real images */}
-        Image Placeholder
+        Replace with <img src={image} alt={title} /> when using real images
       </div>
       <div className="p-4 flex flex-col justify-between h-56">
         <p className="text-green-600 font-medium text-sm">{category}</p>

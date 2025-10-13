@@ -1,96 +1,51 @@
-// app/events/page.tsx
-import EventCard from '@/components/EventCard';
-import Link from 'next/link';
+import EventCard from "@/components/EventCard";
 
-export default function EventsPage() {
+export default function Home() {
+  const events = [
+    {
+      title: "Tech Hub",
+      price: 960000,
+      venue: "Main Bowl",
+      category: "Market Place",
+      capacity: 5000,
+      type: "All night",
+      date: "Dec 16, 2025 1:01 AM",
+      description: "Tech Hub display and marketplace.",
+    },
+    {
+      title: "EA Market Place",
+      price: 960000,
+      venue: "SIA Pitch 1",
+      category: "Market Place",
+      capacity: 5000,
+      type: "All night",
+      date: "Dec 16, 2025 1:01 AM",
+      description: "Shopping, Entertainment, Lifestyle and Culture.",
+    },
+    {
+      title: "EA Market Place",
+      price: 960000,
+      venue: "SIA Pitch 1",
+      category: "Market Place",
+      capacity: 5000,
+      type: "All night",
+      date: "Dec 16, 2025 1:01 AM",
+      description: "Shopping, Entertainment, Lifestyle and Culture.",
+    },
+  ];
+
   return (
-    <main className="px-6 py-10 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-4">Unforgettable Events</h2>
-      <p className="text-center text-gray-600 mb-10">
-        From electrifying concerts to cultural showcases, experience the best of December in Abuja.
-      </p>
+    <main className="min-h-screen bg-gray-50 py-10">
+      <div className="max-w-6xl mx-auto px-6">
+        <h1 className="text-3xl font-bold text-center mb-10 text-green-500">
+          Abuja Detty December 2025
+        </h1>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        <EventCard
-          date="Mon, Dec 15"
-          type="Music"
-          title="Opening Concert 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={5000}
-        />
-
-        <EventCard
-          date="Thu, Dec 18"
-          type="Culture"
-          title="Cultural Festival"
-          venue="Transcorp Hilton Abuja"
-          capacity={3000}
-        />
-
-        <EventCard
-          date="Mon, Dec 15"
-          type="Music"
-          title="Opening Concert 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={5000}
-        />
-
-        <EventCard
-          date="Mon, Dec 15"
-          type="Music"
-          title="Opening Concert 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={5000}
-        />
-
-        <EventCard
-          date="Mon, Dec 15"
-          type="Music"
-          title="Opening Concert 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={5000}
-        />
-
-        <EventCard
-          date="Mon, Dec 15"
-          type="Music"
-          title="Opening Concert 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={5000}
-        />
-
-        <EventCard
-          date="Sat, Dec 20"
-          type="Festival"
-          title="Abuja Detty December Festival 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={2000}
-        />
-
-        <EventCard
-          date="Mon, Dec 15"
-          type="Music"
-          title="Opening Concert 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={5000}
-        />
-      
-      <EventCard
-          date="Mon, Dec 15"
-          type="Music"
-          title="Opening Concert 2025"
-          venue="Transcorp Hilton Abuja"
-          capacity={5000}
-        />
-      </div>
-
-      <div className="text-center mt-10">
-        <Link
-          href="/events/all"
-          className="inline-block bg-green-800 text-white py-3 px-6 rounded hover:bg-green-700 transition"
-        >
-          View All Events →
-        </Link>
+        <div className="flex flex-wrap justify-center gap-6">
+          {events.map((event, index) => (
+            <EventCard key={index} {...event} />
+          ))}
+        </div>
       </div>
     </main>
   );

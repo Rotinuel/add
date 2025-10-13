@@ -2,6 +2,7 @@ import NewsCard from "./NewsCard";
 
 const newsItems = [
   {
+    image: "/news/Grammy.png",
     category: "Entertainment",
     title: "Grammy Nominated Artist Confirmed as Headliner for ADD 2025 Opening Concert",
     excerpt: "Grammy-winning artist will headline the opening concert of Abuja Detty December 2025, promising an unforgettable night of...",
@@ -9,6 +10,7 @@ const newsItems = [
     link: "#",
   },
   {
+    image: "/news/international.png",
     category: "Community",
     title: "International Diaspora Support Reaches All-Time High for ADD 2025",
     excerpt: "Early ticket sales show unprecedented international interest, with diaspora bundle purchases from over 50 countries worldwide.",
@@ -16,6 +18,7 @@ const newsItems = [
     link: "#",
   },
   {
+    image: "/news/Miss.png",
     category: "Competition",
     title: "Miss ADD 2025: Journey to Fame Begins!",
     excerpt: "After weeks of intensive competition, five outstanding young women have emerged as finalists for the Miss ADD 2025 crown.",
