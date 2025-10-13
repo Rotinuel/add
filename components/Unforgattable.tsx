@@ -17,10 +17,13 @@ export default function UnforgettableEvents() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {/* Example Event Card */}
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
-            <Image src="/events/concert.png"
-              alt="Concert Event"
-              className="w-full h-48 object-cover rounded-xl mb-4" width={32} height={32}
-            />
+            <div className="relative w-full h-48 mb-4">
+              <Image src="/events/concert.png"
+                alt="Concert Event"
+                fill
+                className="object-cover rounded-xl mb-4"
+              />
+            </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               Music Concert
             </h3>
@@ -30,11 +33,14 @@ export default function UnforgettableEvents() {
           </div>
 
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
-            <Image
-              src="/events/fashion.png"
-              alt="Fashion Event"
-              className="w-full h-48 object-cover rounded-xl mb-4" width={32} height={32}
-            />
+            <div className="relative w-full h-48 mb-4">
+              <Image
+                src="/events/fashion.png"
+                alt="Fashion Event"
+                fill
+                className="object-cover rounded-xl mb-4"
+              />
+            </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               Fashion Parade
             </h3>
@@ -44,11 +50,14 @@ export default function UnforgettableEvents() {
           </div>
 
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
-            <Image
-              src="/events/food.png"
-              alt="Food Event"
-              className="w-full h-48 object-cover rounded-xl mb-4" width={32} height={32}
-            />
+            <div className="relative w-full h-48 mb-4">
+              <Image
+                src="/events/food.png"
+                alt="Food Event"
+                fill
+                className="object-cover rounded-xl mb-4"
+              />
+            </div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               Food Festival
             </h3>
