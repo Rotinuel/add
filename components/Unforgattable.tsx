@@ -17,7 +17,7 @@ export default function UnforgettableEvents() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           {/* Example Event Card */}
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
-            <Image src="/images/concert.jpg"
+            <Image src="/events/concert.png"
               alt="Concert Event"
               className="w-full h-48 object-cover rounded-xl mb-4" width={32} height={32}
             />
@@ -31,7 +31,7 @@ export default function UnforgettableEvents() {
 
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
             <Image
-              src="/images/fashion.jpg"
+              src="/events/fashion.png"
               alt="Fashion Event"
               className="w-full h-48 object-cover rounded-xl mb-4" width={32} height={32}
             />
@@ -45,7 +45,7 @@ export default function UnforgettableEvents() {
 
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6 hover:shadow-md transition">
             <Image
-              src="/images/food.jpg"
+              src="/events/food.png"
               alt="Food Event"
               className="w-full h-48 object-cover rounded-xl mb-4" width={32} height={32}
             />
