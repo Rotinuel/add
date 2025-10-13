@@ -4,12 +4,14 @@ const testimonials = [
     {
         name: "Chioma Adeleke",
         role: "ADD Partner",
+        image: "/test/Chioma.jpg",
         message: "We partnered with their smaller activations before, and the professionalism was outstanding.",
         rating: 5,
     },
     {
         name: "Emeka Nwosu",
         role: "Vendor Partner",
+        // image: "/test/Sarah.png",
         message: "The team behind this has never disappointed vendors. Past events/competition were smooth and profitable.Looking forward to this historic December edition.",
         rating: 5,
     },
@@ -23,6 +25,7 @@ const testimonials = [
     {
         name: "David Okonkwo",
         role: "Disapora Attendee",
+        image: "/test/David.jpg",
         message: "Even though it’s the first edition, there’s a strong track record. Their past concerts and fairs gave brands real visibility. We expect nothing less this December.",
         rating: 5,
     },
