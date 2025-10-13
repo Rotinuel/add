@@ -3,26 +3,26 @@ import TestimonialCard from './TestimonialCard';
 const testimonials = [
     {
         name: "Chioma Adeleke",
-        role: "Event Attendee 2024",
-        message: "Abuja Detty December was absolutely incredible! The energy, the music, the culture – everything was perfect. I've already booked my tickets for 2025!",
-        rating: 5,
-    },
-    {
-        name: "David Okonkwo",
-        role: "Miss ADD Contestant",
-        message: "Participating in the Miss ADD contest was life-changing. The organization, professionalism, and support from the community was outstanding. Highly recommend!",
-        rating: 5,
-    },
-    {
-        name: "Sarah Johnson",
-        role: "Diaspora Attendee",
-        message: "It felt like coming home. The warmth, the culture, and the people made it unforgettable. Definitely a must-experience event.",
+        role: "ADD Partner",
+        message: "We partnered with their smaller activations before, and the professionalism was outstanding.",
         rating: 5,
     },
     {
         name: "Emeka Nwosu",
         role: "Vendor Partner",
-        message: "Partnering with ADD opened up massive visibility for my brand. The crowd engagement was off the charts.",
+        message: "The team behind this has never disappointed vendors. Past events/competition were smooth and profitable.Looking forward to this historic December edition.",
+        rating: 5,
+    },
+    {
+        name: "Sarah Johnson",
+        role: "Miss Add Contestant",
+        message: "I sold at their last trade exhibition — it was well-coordinated and had a great crowd. This maiden Abuja Detty December looks even bigger. Already booked my spot!",
+        rating: 5,
+    },
+    {
+        name: "David Okonkwo",
+        role: "Disapora Attendee",
+        message: "Even though it’s the first edition, there’s a strong track record. Their past concerts and fairs gave brands real visibility. We expect nothing less this December.",
         rating: 5,
     },
 ];
