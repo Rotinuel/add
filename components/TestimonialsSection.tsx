@@ -11,7 +11,7 @@ const testimonials = [
     {
         name: "Emeka Nwosu",
         role: "Vendor Partner",
-        // image: "/test/Sarah.png",
+        image: "/test/Emeka.jpg",
         message: "The team behind this has never disappointed vendors. Past events/competition were smooth and profitable.Looking forward to this historic December edition.",
         rating: 5,
     },
