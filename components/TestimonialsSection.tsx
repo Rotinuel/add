@@ -16,6 +16,7 @@ const testimonials = [
     {
         name: "Sarah Johnson",
         role: "Miss Add Contestant",
+        image: "/test/Sarah.png",
         message: "I sold at their last trade exhibition — it was well-coordinated and had a great crowd. This maiden Abuja Detty December looks even bigger. Already booked my spot!",
         rating: 5,
     },
