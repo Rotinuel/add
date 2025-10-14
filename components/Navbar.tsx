@@ -9,12 +9,11 @@ import { Bell, ShoppingCart, User, Menu, X } from "lucide-react";
 const navItems = [
     { label: "Home", href: "/" },
     { label: "Events", href: "/events" },
-    { label: "Participate", href: "/participate" },
-    { label: "Vote", href: "/vote" },
+    { label: "Volunteer", href: "/volunteer" },
     { label: "Gallery", href: "/gallery" },
-    { label: "Sponsorship", href: "/sponsorship" },
-    { label: "Market Place", href: "/marketplace" },
-    { label: "Support", href: "/support" },
+    { label: "Sponsors", href: "/sponsors" },
+    { label: "Buy Merch", href: "/buymerch" },
+    { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar({ cartCount = 0 }) {
