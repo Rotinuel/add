@@ -30,7 +30,7 @@ export default function Navbar({ cartCount = 0 }) {
 
     return (
         <nav
-            className={`sticky top-0 left-0 w-full z-50 border-b bg-white`}
+            className={`sticky top-0 left-0 w-full z-50 shadow-md bg-white`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between px-4 md:px-8 py-3 h-16">
@@ -78,7 +78,7 @@ export default function Navbar({ cartCount = 0 }) {
                             )}
                         </Link>
                         <Link
-                            href="/signin"
+                            href="/login"
                             className="hidden md:inline-block ml-2 border text-white bg-[#488d17] border-white/40 px-3 py-1 rounded-md hover:bg-white hover:text-green-700 transition"
                         >
                             Sign in

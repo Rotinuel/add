@@ -4,7 +4,8 @@ import { CalendarDays, MapPin, Users } from 'lucide-react';
 import { BiCategory } from 'react-icons/bi';
 
 interface EventCardProps {
-  date: string;
+  sdate: string;
+  edate: string;
   type: string;
   title: string;
   venue: string;
@@ -15,7 +16,7 @@ interface EventCardProps {
   description: string;
 }
 
-const EventCard: FC<EventCardProps> = ({ date, type, title, venue, capacity, bgColor = "bg-white", isPlaceholder, price, description }) => {
+const EventCard: FC<EventCardProps> = ({ sdate, edate, type, title, venue, capacity, bgColor = "bg-white", isPlaceholder, price, description }) => {
   if (isPlaceholder) {
     return (
       <div className="w-full h-56 bg-gray-300 rounded-xl flex items-center justify-center text-gray-600">
@@ -52,7 +53,7 @@ const EventCard: FC<EventCardProps> = ({ date, type, title, venue, capacity, bgC
         </li>
       <li className="flex items-center mb-4">
         <CalendarDays className="mr-2" />
-        <span className="text-sm">{date}</span>
+        <span className="text-sm">{sdate} - {edate}</span>
       </li>
       <li className="flex items-center text-sm">
         <Users className="w-4 h-4 mr-2" />

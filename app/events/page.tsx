@@ -3,13 +3,14 @@ import EventCard from "@/components/EventCard";
 export default function Home() {
   const events = [
     {
-      title: "Tech Hub",
-      price: 960000,
-      venue: "Main Bowl",
+      title: "Trade Fair/Exhibition",
+      price: 250000,
+      venue: "Nil",
       category: "Market Place",
       capacity: 5000,
       type: "All night",
-      date: "Dec 16, 2025 1:01 AM",
+      sdate: "Dec 16, 2025 1:01 AM",
+      edate: "Jan 02, 2026",
       description: "Tech Hub display and marketplace.",
     },
     {
@@ -19,7 +20,8 @@ export default function Home() {
       category: "Market Place",
       capacity: 5000,
       type: "All night",
-      date: "Dec 16, 2025 1:01 AM",
+      sdate: "Dec 16, 2025 1:01 AM",
+      edate: "Dec 16, 2025 1:01 AM",
       description: "Shopping, Entertainment, Lifestyle and Culture.",
     },
     {
@@ -29,7 +31,8 @@ export default function Home() {
       category: "Market Place",
       capacity: 5000,
       type: "All night",
-      date: "Dec 16, 2025 1:01 AM",
+      sdate: "Dec 16, 2025 1:01 AM",
+      edate: "Dec 16, 2025 1:01 AM",
       description: "Shopping, Entertainment, Lifestyle and Culture.",
     },
   ];
