@@ -42,8 +42,12 @@ export default function AuthPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Something went wrong');
       setMessage(isLogin ? 'Login successful!' : 'Registration successful!');
-    } catch (err: any) {
-      setMessage(err.message);
+    } catch (err) {
+  if (err instanceof Error) {
+    setMessage(err.message);
+  } else {
+    setMessage('An unknown error occurred');
+  }
     } finally {
       setLoading(false);
     }
@@ -65,8 +69,12 @@ export default function AuthPage() {
       setMessage('Password reset link sent to your email.');
       setShowReset(false);
       setResetEmail('');
-    } catch (err: any) {
+    } catch (err) {
+      if (err instanceof Error){
       setMessage(err.message);
+      } else {
+        setMessage('An unknown error occured')
+      }
     }
   };
 
