@@ -99,25 +99,30 @@ export default function Navbar({ cartCount = 0 }) {
             {menuOpen && (
                 <div className="lg:hidden bg-white backdrop-blur-md border-t border-gray-200 text-black px-6 py-4 space-y-4 animate-slide-down">
                     {navItems.map((item) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setMenuOpen(false)}
-                            className="block hover:text-gray-200 transition-colors duration-200"
-                        >
-                            {item.label}
-                        </Link>
+                        <div key={item.href}>
+                            <Link
+                                href={item.href}
+                                onClick={() => {
+                                    setMenuOpen(false);
+                                }}
+                                className="block hover:text-[#488d17] transition-colors duration-200"
+                            >
+                                {item.label}
+                            </Link>
+                        </div>
                     ))}
                     <div className="pt-2 border-t border-green-600">
                         <Link
                             href="/login"
-                            className="block text-center border  border-green/40 px-3 py-2 rounded-md hover:bg-[#488d17] transition"
+                            onClick={() => setMenuOpen(false)}
+                            className="block text-center border border-green/40 px-3 py-2 rounded-md hover:bg-[#488d17] hover:text-white transition"
                         >
                             Sign in
                         </Link>
                     </div>
                 </div>
             )}
+
         </nav>
     );
 };
