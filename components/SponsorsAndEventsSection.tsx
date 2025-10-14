@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const sponsors = [
-    // { name: "Abuja Continental", logo: "/sponsors/AC.png" },
+    { name: "Abuja Continental", logo: "/sponsors/Abuja.jpg"},
     { name: "Brave iocns", logo: "/sponsors/BRAVEICONS.png" },
     { name: "KYROS AUTOMOBILE", logo: "/sponsors/KYROS.png" },
     // { name: "PFIPC", logo: "/sponsors/PFIPC.png" },
