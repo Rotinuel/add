@@ -35,7 +35,7 @@ const EventCard: FC<EventCardProps> = ({ sdate, edate, type, title, venue, capac
       <p className="text-sm mb-2">{type}</p>
 
       {/* price */}
-      <div className="bg-fuchsia-700 text-white text-center text-2xl font-bold py-3 rounded-md mb-4">
+      <div className="bg-green-700 text-white text-center text-2xl font-bold py-3 rounded-md mb-4">
         ₦{price.toLocaleString("en-NG", { minimumFractionDigits: 2 })}
       </div>
 

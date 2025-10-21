@@ -1,4 +1,5 @@
 // import EventCard from "@/components/EventCard";
+
 import Accordion from "@/components/Accordion";
 import CallToAction from "@/components/CallToAction";
 import CompetitionsPage from "@/components/Competitions";
