@@ -1,20 +1,18 @@
-import NextAuth, { type NextAuthOptions} from "next-auth";
+import NextAuth, { type NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { db } from './lib/db'; // Your MySQL connection
+import { db } from "@/lib/db"; // adjust path
 import { RowDataPacket } from "mysql2";
 
-// --- User type ---
 interface DBUser extends RowDataPacket {
   id: number;
   email: string;
-  phone_number: number;
+  phone_number: string;
   password_hash: string;
   role: string;
 }
 
-// --- NextAuth configuration ---
-const config: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
       name: "Credentials",
@@ -33,7 +31,7 @@ const config: NextAuthOptions = {
           const user = rows[0];
 
           if (user && (await bcrypt.compare(credentials.password, user.password_hash))) {
-            return { id: user.id.toString(), email: user.email, role: user.role } as any;
+            return { id: user.id.toString(), email: user.email, role: user.role };
           }
           return null;
         } catch (error) {
@@ -43,12 +41,9 @@ const config: NextAuthOptions = {
       },
     }),
   ],
-
   callbacks: {
     async jwt({ token, user }) {
-      if (user) {
-        token.role = (user as any).role;
-      }
+      if (user) token.role = (user as any).role;
       return token;
     },
     async session({ session, token }) {
@@ -58,30 +53,10 @@ const config: NextAuthOptions = {
       }
       return session;
     },
-},
-    authorized({ auth, request: { nextUrl } }) {
-      const isLoggedIn = !!auth?.user;
-      const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
-      const isAdminPage = nextUrl.pathname.startsWith("/dashboard/admin");
-
-      if (isOnDashboard) {
-        if (!isLoggedIn) {
-          return Response.redirect(new URL("/login", nextUrl));
-        }
-
-        if (isAdminPage && auth.user.role !== "admin") {
-          return Response.redirect(new URL("/unauthorized", nextUrl));
-        }
-      }
-
-      return true;
-    },
-
+  },
   pages: {
     signIn: "/login",
   },
 };
 
-// --- Export NextAuth handlers ---
-export const { handlers, auth, signIn, signOut } = NextAuth(config);
-
+export const { handlers, auth, signIn, signOut } = NextAuth(authOptions);
