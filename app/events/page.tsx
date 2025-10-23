@@ -15,7 +15,7 @@ interface Event {
 export default function Home() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
-// export default function Home() {
+  // export default function Home() {
   const events = [
     {
       title: "Trade Fair/Exhibition",
@@ -184,11 +184,19 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="flex items-center justify-center mb-10">
+        {/* <div className="flex items-center justify-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-white bg-[#008236] px-8 py-4 rounded-2xl shadow-lg text-center">
             Abuja Detty December 2025
           </h1>
+        </div> */}
+
+        {/* Full-width section header */}
+        <div className="w-full mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-white bg-[#008236] py-5 text-center rounded-xl shadow-md border border-green-800">
+            Abuja Detty December 2025
+          </h1>
         </div>
+
 
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
