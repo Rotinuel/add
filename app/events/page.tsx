@@ -1,6 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import EventCard from "@/components/EventCard";
 
+interface Event {
+  title: string;
+  price: number;
+  venue: string;
+  sdate: string;
+  edate: string;
+  description: string;
+}
+
 export default function Home() {
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+
+// export default function Home() {
   const events = [
     {
       title: "Trade Fair/Exhibition",
@@ -166,18 +181,63 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50 py-10">
-      <div className="max-w-6xl mx-auto px-6">
-        <h1 className="text-3xl font-bold text-center mb-10 text-green-500">
-          Abuja Detty December 2025
-        </h1>
+    <main className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="flex items-center justify-center mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-white bg-[#008236] px-8 py-4 rounded-2xl shadow-lg text-center">
+            Abuja Detty December 2025
+          </h1>
+        </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event, index) => (
-            <EventCard key={index} {...event} />
+            <EventCard
+              key={index}
+              {...event}
+              onViewMore={() => setSelectedEvent(event)}
+            />
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedEvent && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-6 z-50">
+          <div className="bg-white rounded-2xl shadow-lg max-w-md w-full p-6 relative">
+            <button
+              onClick={() => setSelectedEvent(null)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
+            <h2 className="text-2xl font-bold mb-2 text-[#008236]">
+              {selectedEvent.title}
+            </h2>
+            <p className="text-gray-600 mb-4">{selectedEvent.description}</p>
+            <ul className="text-sm text-gray-700 space-y-1 mb-4">
+              <li><strong>Venue:</strong> {selectedEvent.venue || "TBA"}</li>
+              <li>
+                <strong>Date:</strong> {selectedEvent.sdate || "TBA"}
+                {selectedEvent.edate && ` - ${selectedEvent.edate}`}
+              </li>
+              <li>
+                <strong>Price:</strong> ₦
+                {selectedEvent.price.toLocaleString("en-NG", {
+                  minimumFractionDigits: 2,
+                })}
+              </li>
+            </ul>
+            <button
+              onClick={() => setSelectedEvent(null)}
+              className="w-full bg-[#008236] hover:bg-green-700 text-white py-2 rounded-md font-semibold mt-4"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
