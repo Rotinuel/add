@@ -120,12 +120,23 @@ const EventCard: FC<EventCardProps> = ({
             {venue}
           </li>
         )}
-        <li className="flex items-center mb-4">
+        {/* <li className="flex items-center mb-4">
           <CalendarDays className="mr-2 w-4 h-4" />
           <span className="text-sm">
             {sdate || "TBA"} {edate && ` - ${edate}`}
           </span>
+        </li> */}
+        <li className="flex items-center mb-4">
+          <CalendarDays className="mr-2 w-4 h-4" />
+          <span className="text-sm">
+            {sdate
+              ? edate && edate !== sdate
+                ? `${sdate} - ${edate}` // Range
+                : sdate // Single date
+              : "TBA"}
+          </span>
         </li>
+
       </ul>
 
       {/* Description */}

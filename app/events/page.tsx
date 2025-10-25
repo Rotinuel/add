@@ -15,28 +15,27 @@ interface Event {
 export default function Home() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
-  // export default function Home() {
   const events = [
     {
       title: "Trade Fair/Exhibition",
       price: 350000,
-      venue: "",
+      venue: "National Stadium Abuja",
       sdate: "Dec 21, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Tech innovation, lifestyle, and market showcase.",
     },
     {
       title: "Tour Abuja",
       price: 150000,
       venue: "Iconic Tourist Spots in Abuja",
-      sdate: "Dec 22, 2025",
+      sdate: "Dec 21, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Explore iconic city landmarks and cultural sites.",
     },
     {
       title: "Shop Abuja",
       price: 200000,
-      venue: "",
+      venue: "National Stadium Abuja",
       sdate: "Dec 23, 2025",
       edate: "Jan 02, 2026",
       description: "Shopping, Entertainment, Lifestyle and Culture.",
@@ -44,10 +43,10 @@ export default function Home() {
     {
       title: "Pool Party (Exclusive Party)",
       price: 75000,
-      venue: "",
+      venue: "Abuja Continental Hotels",
       sdate: "Dec 24, 2025",
-      edate: "",
-      description: "Shopping, Entertainment, Lifestyle and Culture.",
+      edate: "Dec 24, 2025",
+      description: "Vibes, drinks, music and pool side energy.",
     },
     {
       title: "Abuja Night Life Experience",
@@ -55,7 +54,7 @@ export default function Home() {
       venue: "",
       sdate: "Dec 24, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Clubs, concerts, celebrity DJs, and nightlife fun..",
     },
     {
       title: "Christmas Carol Challenge",
@@ -63,7 +62,7 @@ export default function Home() {
       venue: "Abuja Continental Hotels",
       sdate: "Dec 25, 2025",
       edate: "",
-      description: "Tech Hub display and marketplace.",
+      description: "Choirs competing in melody, harmony, and passion..",
     },
     {
       title: "Global NAIJA Summit",
@@ -71,7 +70,7 @@ export default function Home() {
       venue: "World Trade Center",
       sdate: "",
       edate: "",
-      description: "Tech Hub display and marketplace.",
+      description: "Business, innovation, networking, and leadership insights..",
     },
     {
       title: "Xtravaganza Newtworking Mixer",
@@ -79,7 +78,7 @@ export default function Home() {
       venue: "Abuja Continental Hotels",
       sdate: "Dec 16, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Meet top executives, founders, and creative professionals..",
     },
     {
       title: "Wellness Day",
@@ -87,15 +86,15 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 28, 2025",
       edate: "",
-      description: "Tech Hub display and marketplace.",
+      description: "Fitness, health, relaxation, and mindfulness experience..",
     },
     {
       title: "Sports Tournament",
       price: 20000,
       venue: "National Stadium Abuja",
-      sdate: "Dec 29, 2025",
+      sdate: "Dec 20, 2025",
       edate: "Dec 30, 2025",
-      description: "Tech Hub display and marketplace.",
+      description: "Football, volleyball, and team competitions..",
     },
     {
       title: "Movie Premier",
@@ -103,7 +102,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "",
       edate: "",
-      description: "Tech Hub display and marketplace.",
+      description: "Red carpet moments, screenings, and film stars..",
     },
     {
       title: "Cross Over Concert",
@@ -111,7 +110,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 31, 2025",
       edate: "Jan 01, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Countdown night with live music and fireworks..",
     },
     {
       title: "Cultural Carnival Day 1",
@@ -119,7 +118,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 31, 2025",
       edate: "Jan 01, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Free entry to experience Abuja’s culture and creativity.",
     },
     {
       title: "Cultural Carnival Day 2",
@@ -127,7 +126,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Jan 01 , 2026",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Cultural displays, music, dance, and local artistry.",
     },
     {
       title: "City Rave",
@@ -135,7 +134,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 23, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "High-energy rave with DJs, lights, and street vibes.",
     },
     {
       title: "DETTY & LIT",
@@ -143,7 +142,7 @@ export default function Home() {
       venue: "National Stadium",
       sdate: "Dec 24, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Party hard with top DJs, performers, and influencers.",
     },
     {
       title: "Vibes on Vibes",
@@ -151,7 +150,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 30, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Non-stop music, dance, and entertainment fusion.",
     },
     {
       title: "Cloud Elixir",
@@ -159,7 +158,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 24, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "A luxury party experience with cocktails and lights.",
     },
     {
       title: "Wet & Wild",
@@ -167,7 +166,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 29, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Water games, music, and outdoor fun.",
     },
     {
       title: "Hike of Hikes Challenge",
@@ -175,7 +174,7 @@ export default function Home() {
       venue: "National Stadium Abuja",
       sdate: "Dec 27, 2025",
       edate: "Jan 02, 2026",
-      description: "Tech Hub display and marketplace.",
+      description: "Fitness hike, adventure trails, and team spirit.",
     },
 
   ];
@@ -184,11 +183,6 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        {/* <div className="flex items-center justify-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-white bg-[#008236] px-8 py-4 rounded-2xl shadow-lg text-center">
-            Abuja Detty December 2025
-          </h1>
-        </div> */}
 
         {/* Full-width section header */}
         <div className="w-full mb-10">
