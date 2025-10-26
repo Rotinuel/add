@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Image from "next/image";
 
-import { FC } from "react";
 import { CalendarDays, MapPin } from "lucide-react";
 import EventBookingModal from './EventBookingModal';
 

@@ -14,6 +14,8 @@ export default function SponsorPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex justify-center items-start py-16">
       <div className="w-full max-w-5xl border-8 border-green-400 bg-white shadow-lg rounded-lg p-8">
+        <h1 className="justify-center">Want your brand to own the spotlight this season? Abuja Detty December isn’t just about fun — it’s a movement that brings together over 100,000+ culture lovers, foodies, creators, and community shapers.From rising brands to household names, we give you the platform to be seen, felt, and remembered — right where the vibes live. Let’s put your brand at the center of the experience.</h1>
+
         <h1 className="text-3xl font-semibold text-center mb-8">
           Become a Sponsor
         </h1>
