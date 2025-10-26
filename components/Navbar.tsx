@@ -13,7 +13,7 @@ const navItems = [
   { label: "Volunteer", href: "/volunteer" },
   { label: "Gallery", href: "/gallery" },
   { label: "Sponsors", href: "/sponsors" },
-  { label: "Buy Merch", href: "/buymerch" },
+  { label: "Market Place", href: "/marketplace" },
   { label: "Contact Us", href: "/contact" },
 ];
 
