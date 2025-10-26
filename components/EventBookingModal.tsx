@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { X } from "lucide-react";
-import { loadPaystackScript } from "@/utils/paystack"; // helper we’ll define below
+import { loadPaystackScript } from "@/utils/paystack";
 
+// --- Types ---
 interface EventBookingModalProps {
   open: boolean;
   onClose: () => void;
@@ -14,27 +15,46 @@ interface EventBookingModalProps {
   };
 }
 
-export default function EventBookingModal({ open, onClose, event }: EventBookingModalProps) {
+interface PaystackResponse {
+  reference: string;
+  status: string;
+  message: string;
+  trans: string;
+  transaction: string;
+  trxref: string;
+}
+
+export default function EventBookingModal({
+  open,
+  onClose,
+  event,
+}: EventBookingModalProps) {
   const [email, setEmail] = useState("");
 
   if (!open) return null;
 
   const handlePay = async () => {
     const Paystack = await loadPaystackScript();
-    const handler = Paystack?.Pop?.setup({
-      key: process.env.NEXT_PUBLIC_PAYSTACK_KEY,
+    if (!Paystack?.Pop) {
+      alert("Unable to load Paystack. Please try again.");
+      return;
+    }
+
+    const handler = Paystack.Pop.setup({
+      key: process.env.NEXT_PUBLIC_PAYSTACK_KEY as string,
       email,
       amount: event.price * 100,
       currency: "NGN",
       ref: `EVT-${Date.now()}`,
-      callback: function (response: any) {
+      callback: (response: PaystackResponse) => {
         alert(`Payment successful! Ref: ${response.reference}`);
         onClose();
       },
-      onClose: function () {
+      onClose: () => {
         console.log("Payment window closed.");
       },
     });
+
     handler.openIframe();
   };
 
@@ -47,10 +67,12 @@ export default function EventBookingModal({ open, onClose, event }: EventBooking
         >
           <X size={20} />
         </button>
+
         <h2 className="text-xl font-semibold mb-4">{event.title}</h2>
         <p className="text-lg font-bold text-green-600 mb-3">
           ₦{event.price.toLocaleString("en-NG")}
         </p>
+
         <input
           type="email"
           placeholder="Enter your email"
@@ -58,6 +80,7 @@ export default function EventBookingModal({ open, onClose, event }: EventBooking
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+
         <button
           onClick={handlePay}
           className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded font-semibold transition"
