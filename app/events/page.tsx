@@ -22,12 +22,13 @@ export default function EventsPage() {
 
   const categories = [
     "All Events",
-    "Concert",
-    "Comedy",
-    "Cultural",
+    "Shopping",
     "Dance",
-    "Food",
-    "Workshop",
+    "Cultural",
+    "Concert",
+    "Networking",
+    "Health",
+    "Games",
   ];
 
   const events = [
@@ -38,7 +39,7 @@ export default function EventsPage() {
       sdate: "Dec 21, 2025",
       edate: "Jan 02, 2026",
       image: "/eventcards/Tradefair.png",
-      category: "concert",
+      category: "Shopping",
       description: "Tech innovation, lifestyle, and market showcase.",
     },
     {
@@ -48,7 +49,7 @@ export default function EventsPage() {
       sdate: "Dec 21, 2025",
       edate: "Jan 02, 2026",
       image: "/eventcards/Tour-Abuja.png",
-      category: "concert",
+      category: "Cultural",
       description: "Explore iconic city landmarks and cultural sites.",
     },
     {
@@ -58,7 +59,7 @@ export default function EventsPage() {
       sdate: "Dec 23, 2025",
       edate: "Jan 02, 2026",
       image: "/eventcards/Shop.png",
-      category: "concert",
+      category: "Shopping",
       description: "Shopping, Entertainment, Lifestyle and Culture.",
     },
     {
@@ -68,7 +69,7 @@ export default function EventsPage() {
       sdate: "Dec 24, 2025",
       edate: "",
       image: "/eventcards/Pool.png",
-      category: "concert",
+      category: "Dance",
       description: "Vibes, drinks, music and pool side energy.",
     },
     {
@@ -78,7 +79,7 @@ export default function EventsPage() {
       sdate: "Dec 24, 2025",
       edate: "",
       image: "/eventcards/Nightlife.png",
-      category: "concert",
+      category: "Dance",
       description: "Clubs, concerts, celebrity DJs, and nightlife fun..",
     },
     {
@@ -88,7 +89,7 @@ export default function EventsPage() {
       sdate: "Dec 25, 2025",
       edate: "",
       image: "/eventcards/Carol.png",
-      category: "concert",
+      category: "Concert",
       description: "Choirs competing in melody, harmony, and passion..",
     },
     {
@@ -98,17 +99,17 @@ export default function EventsPage() {
       sdate: "Dec 23, 2025",
       edate: "",
       image: "/eventcards/Summit.png",
-      category: "concert",
+      category: "Networking",
       description: "Business, innovation, networking, and leadership insights..",
     },
     {
-      title: "Xtravaganza Newtworking Mixer",
+      title: "Xtravaganza Networking Mixer",
       price: 180000,
       venue: "Abuja Continental Hotels",
       sdate: "Dec 26, 2025",
       edate: "Jan 02, 2026",
-      // image: "/eventcards/.png",
-      category: "concert",
+      image: "/eventcards/Mixer.png",
+      category: "Networking",
       description: "Meet top executives, founders, and creative professionals..",
     },
     {
@@ -118,7 +119,7 @@ export default function EventsPage() {
       sdate: "Dec 26, 2025",
       edate: "",
       image: "/eventcards/Wellness.png",
-      category: "concert",
+      category: "Health",
       description: "Fitness, health, relaxation, and mindfulness experience..",
     },
     {
@@ -127,8 +128,8 @@ export default function EventsPage() {
       venue: "National Stadium Abuja",
       sdate: "Dec 20, 2025",
       edate: "Dec 30, 2025",
-      // image: "/eventcards/Wellness.png",
-      category: "concert",
+      image: "/eventcards/sports.png",
+      category: "Games",
       description: "Football, volleyball, and team competitions..",
     },
     {
@@ -137,8 +138,8 @@ export default function EventsPage() {
       venue: "National Stadium Abuja",
       sdate: "",
       edate: "",
-      // image: "/eventcards/Detty.png",
-      category: "concert",
+      image: "/eventcards/MOVIE.png",
+      category: "Concert",
       description: "Red carpet moments, screenings, and film stars..",
     },
     {
@@ -147,8 +148,8 @@ export default function EventsPage() {
       venue: "National Stadium Abuja",
       sdate: "Dec 31, 2025",
       edate: "Jan 01, 2026",
-      // image: "/eventcards/Detty.png",
-      category: "concert",
+      image: "/eventcards/CROSS.png",
+      category: "Concert",
       description: "Countdown night with live music and fireworks..",
     },
     {
@@ -157,8 +158,8 @@ export default function EventsPage() {
       venue: "National Stadium Abuja",
       sdate: "Dec 31 , 2025",
       edate: "",
-      // image: "/eventcards/Detty.png",
-      category: "concert",
+      image: "/eventcards/carnival.png",
+      category: "Cultural",
       description: "Cultural displays, music, dance, and local artistry.",
     },
     {
@@ -167,8 +168,8 @@ export default function EventsPage() {
       venue: "National Stadium Abuja",
       sdate: "Dec 25, 2025",
       edate: "Jan 02, 2026",
-      // image: "/eventcards/.png",
-      category: "concert",
+      image: "/eventcards/rave.png",
+      category: "Concert",
       description: "High-energy rave with DJs, lights, and street vibes.",
     },
     {
@@ -178,7 +179,7 @@ export default function EventsPage() {
       sdate: "Dec 24, 2025",
       edate: "Jan 02, 2026",
       image: "/eventcards/Detty.png",
-      category: "concert",
+      category: "Concert",
       description: "Party hard with top DJs, performers, and influencers.",
     },
     {
@@ -188,7 +189,7 @@ export default function EventsPage() {
       sdate: "Dec 30, 2025",
       edate: "Jan 02, 2026",
       image: "/eventcards/Vibes.png",
-      category: "concert",
+      category: "Concert",
       description: "Non-stop music, dance, and entertainment fusion.",
     },
     {
@@ -198,7 +199,7 @@ export default function EventsPage() {
       sdate: "Dec 24, 2025",
       edate: "Jan 02, 2026",
       image: "/eventcards/Elixir.png",
-      category: "concert",
+      category: "Concert",
       description: "A luxury party experience with cocktails and lights.",
     },
     {
@@ -218,7 +219,7 @@ export default function EventsPage() {
       sdate: "Dec 27, 2025",
       edate: "",
       image: "/eventcards/hike.png",
-      category: "concert",
+      category: "Games",
       description: "Fitness hike, adventure trails, and team spirit.",
     },
   ];
@@ -319,11 +320,10 @@ export default function EventsPage() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-md text-sm font-medium border ${
-                activeCategory === cat
-                  ? "bg-green-600 text-white border-green-600"
-                  : "bg-white text-green-600 border-green-600 hover:bg-green-50"
-              } transition-colors`}
+              className={`px-4 py-2 rounded-md text-sm font-medium border ${activeCategory === cat
+                ? "bg-green-600 text-white border-green-600"
+                : "bg-white text-green-600 border-green-600 hover:bg-green-50"
+                } transition-colors`}
             >
               {cat}
             </button>
@@ -334,21 +334,19 @@ export default function EventsPage() {
         <div className="flex gap-2">
           <button
             onClick={() => setViewMode("grid")}
-            className={`p-2 rounded-md border ${
-              viewMode === "grid"
-                ? "bg-green-600 text-white border-green-600"
-                : "bg-white text-green-600 border-green-600 hover:bg-green-50"
-            }`}
+            className={`p-2 rounded-md border ${viewMode === "grid"
+              ? "bg-green-600 text-white border-green-600"
+              : "bg-white text-green-600 border-green-600 hover:bg-green-50"
+              }`}
           >
             <Grid className="w-5 h-5" />
           </button>
           <button
             onClick={() => setViewMode("list")}
-            className={`p-2 rounded-md border ${
-              viewMode === "list"
-                ? "bg-green-600 text-white border-green-600"
-                : "bg-white text-green-600 border-green-600 hover:bg-green-50"
-            }`}
+            className={`p-2 rounded-md border ${viewMode === "list"
+              ? "bg-green-600 text-white border-green-600"
+              : "bg-white text-green-600 border-green-600 hover:bg-green-50"
+              }`}
           >
             <List className="w-5 h-5" />
           </button>
