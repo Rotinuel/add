@@ -20,13 +20,13 @@ export default function ProductsDashboard() {
           </tr>
         </thead>
         <tbody>
-          {data.map((p: any) => (
+          {/* {data.map((p: any) => (
             <tr key={p._id} className="border-t">
               <td className="p-2">{p.title}</td>
               <td className="p-2">₦{p.price}</td>
               <td className="p-2">{p.stock}</td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
     </div>
