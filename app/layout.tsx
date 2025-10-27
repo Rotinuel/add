@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Toaster } from "sonner";
+import SessionProviderWrapper from "@/app/providers/SessionProviderWrapper"
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -23,22 +24,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* <script src="https://js.paystack.co/v1/inline.js"></script> */}
       </head>
       <body className="bg-white text-black font-inter antialiased">
-        <ReactQueryProvider>
-          <Navbar />
-          {children}
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: "white",
-                color: "black",
-                border: "1px solid #e5e7eb",
-              },
-            }}
-          />
-          <Footer />
-        </ReactQueryProvider>
+        <SessionProviderWrapper>
+          <ReactQueryProvider>
+            <Navbar />
+            {children}
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: "white",
+                  color: "black",
+                  border: "1px solid #e5e7eb",
+                },
+              }}
+            />
+            <Footer />
+          </ReactQueryProvider>
+        </SessionProviderWrapper>
       </body>
     </html>
   );

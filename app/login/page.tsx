@@ -1,12 +1,18 @@
 'use client';
 
+import { signIn } from "next-auth/react";
+
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
 import Image from 'next/image';
 
 export default function AuthPage() {
+  const router = useRouter();
+
   const [isLogin, setIsLogin] = useState(true);
   const [form, setForm] = useState({
     email: '',
+    phone: '',
     password: '',
     name: '',
     remember: false,
@@ -26,32 +32,155 @@ export default function AuthPage() {
     setForm({ ...form, [name]: type === 'checkbox' ? checked : value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage('');
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setMessage('');
 
-    try {
-      const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
+  //   try {
+  //     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+  //     const res = await fetch(endpoint, {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify(form),
+  //     });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || 'Something went wrong');
-      setMessage(isLogin ? 'Login successful!' : 'Registration successful!');
-    } catch (err) {
-  if (err instanceof Error) {
-    setMessage(err.message);
-  } else {
-    setMessage('An unknown error occurred');
+  //     const data = await res.json();
+  //     if (!res.ok) throw new Error(data.message || 'Something went wrong');
+  //     if (data.user) {
+  //       localStorage.setItem("user", JSON.stringify(data.user));
+  //     }
+  //     if (isLogin) {
+  //       setMessage('Login successful!');
+  //       const role = data.user?.role || "user";
+  //       setTimeout(() => {
+  //         router.push(role === "admin" ? "/dashboard/admin" : "/dashboard");
+  //       }, 1000);
+  //     }
+  //     else {
+  //       setMessage('Registration successful!');
+  //       setTimeout(() => {
+  //         router.push("/login");
+  //       }, 1000);
+  //     }
+  //   } catch (err) {
+  //     if (err instanceof Error) {
+  //       setMessage(err.message);
+  //     } else {
+  //       setMessage('An unknown error occurred');
+  //     }
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setMessage("");
+
+  //   const res = await signIn("credentials", {
+  //     redirect: false,
+  //     email: form.email,
+  //     password: form.password,
+  //   });
+
+  //   if (res?.error) {
+  //     setMessage(res.error);
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   // ✅ Fetch session to get user role
+  //   const sessionRes = await fetch("/api/auth/session");
+  //   const session = await sessionRes.json();
+
+  //   if (session?.user?.role === "admin") {
+  //     router.push("/dashboard/admin");
+  //   } else {
+  //     router.push("/dashboard");
+  //   }
+
+  //   setLoading(false);
+  // };
+
+//   const handleSubmit = async (e: React.FormEvent) => {
+//   e.preventDefault();
+//   setLoading(true);
+//   setMessage("");
+
+//   try {
+//     // 1️⃣ Attempt login
+//     const res = await signIn("credentials", {
+//       redirect: false,
+//       email: form.email,
+//       password: form.password,
+//     });
+
+//     if (res?.error) {
+//       setMessage(res.error);
+//       setLoading(false);
+//       return;
+//     }
+
+//     // 2️⃣ Get the updated session
+//     const sessionRes = await fetch("/api/auth/session", { cache: "no-store" });
+//     const session = await sessionRes.json();
+
+//     // 3️⃣ Verify user + role
+//     if (!session?.user) {
+//       setMessage("Unable to fetch user session.");
+//       setLoading(false);
+//       return;
+//     }
+
+//     // 4️⃣ Redirect based on role
+//     if (session.user.role === "admin") {
+//       router.replace("/dashboard/admin"); // ✅ use replace() to avoid back navigation to login
+//     } else {
+//       router.replace("/dashboard");
+//     }
+
+//   } catch (error) {
+//     console.error(error);
+//     setMessage("Login failed, please try again.");
+//   } finally {
+//     setLoading(false);
+//   }
+// };
+
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+  setMessage("");
+
+  const res = await signIn("credentials", {
+    redirect: false,
+    email: form.email,
+    password: form.password,
+  });
+
+  if (res?.error) {
+    setMessage(res.error);
+    setLoading(false);
+    return;
   }
-    } finally {
-      setLoading(false);
-    }
-  };
+
+  const sessionRes = await fetch("/api/auth/session");
+  const session = await sessionRes.json();
+
+  if (session?.user?.role === "admin") {
+    router.push("/dashboard/admin");
+  } else {
+    router.push("/dashboard");
+  }
+
+  setLoading(false);
+};
+
+
+
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,8 +199,8 @@ export default function AuthPage() {
       setShowReset(false);
       setResetEmail('');
     } catch (err) {
-      if (err instanceof Error){
-      setMessage(err.message);
+      if (err instanceof Error) {
+        setMessage(err.message);
       } else {
         setMessage('An unknown error occured')
       }
@@ -108,19 +237,34 @@ export default function AuthPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
-              <div>
-                <label className="block text-sm font-medium mb-1">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-green-400"
-                />
-              </div>
+              <>
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-green-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-green-400"
+                  />
+                </div>
+              </>
             )}
 
             <div>
