@@ -10,7 +10,7 @@ import { Bell, ShoppingCart, User, Menu, X } from "lucide-react";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Events", href: "/events" },
-  { label: "Volunteer", href: "/volunteer" },
+  { label: "Book Reservations", href: "/bookings" },
   { label: "Gallery", href: "/gallery" },
   { label: "Sponsors", href: "/sponsors" },
   { label: "Market Place", href: "/marketplace" },

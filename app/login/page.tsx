@@ -150,36 +150,96 @@ export default function AuthPage() {
 // };
 
 
+// const handleSubmit = async (e: React.FormEvent) => {
+//   e.preventDefault();
+//   setLoading(true);
+//   setMessage("");
+
+//   const res = await signIn("credentials", {
+//     redirect: false,
+//     email: form.email,
+//     password: form.password,
+//   });
+
+//   if (res?.error) {
+//     setMessage(res.error);
+//     setLoading(false);
+//     return;
+//   }
+
+//   const sessionRes = await fetch("/api/auth/session");
+//   const session = await sessionRes.json();
+
+//   if (session?.user?.role === "admin") {
+//     router.push("/dashboard/admin");
+//   } else {
+//     router.push("/dashboard");
+//   }
+//   setLoading(false);
+// };
+
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setLoading(true);
   setMessage("");
 
-  const res = await signIn("credentials", {
-    redirect: false,
-    email: form.email,
-    password: form.password,
-  });
+  try {
+    if (!isLogin) {
+      // ✅ Register user
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          password: form.password,
+        }),
+      });
 
-  if (res?.error) {
-    setMessage(res.error);
+      const data = await res.json();
+
+      if (!res.ok) {
+        setMessage(data.message || "Registration failed");
+      } else {
+        setMessage("✅ Registration successful! Please log in.");
+        setIsLogin(true); // Switch to login mode after successful signup
+      }
+
+      setLoading(false);
+      return;
+    }
+
+    // ✅ Handle Login (NextAuth)
+    const res = await signIn("credentials", {
+      redirect: false,
+      email: form.email,
+      password: form.password,
+    });
+
+    if (res?.error) {
+      setMessage(res.error);
+      setLoading(false);
+      return;
+    }
+
+    // ✅ Get the session and redirect based on role
+    const sessionRes = await fetch("/api/auth/session");
+    const session = await sessionRes.json();
+
+    if (session?.user?.role === "admin") {
+      router.push("/dashboard/admin");
+    } else {
+      router.push("/dashboard");
+    }
+
+  } catch (error) {
+    console.error(error);
+    setMessage("Something went wrong, please try again.");
+  } finally {
     setLoading(false);
-    return;
   }
-
-  const sessionRes = await fetch("/api/auth/session");
-  const session = await sessionRes.json();
-
-  if (session?.user?.role === "admin") {
-    router.push("/dashboard/admin");
-  } else {
-    router.push("/dashboard");
-  }
-
-  setLoading(false);
 };
-
-
 
 
   const handlePasswordReset = async (e: React.FormEvent) => {
