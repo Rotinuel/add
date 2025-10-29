@@ -17,7 +17,9 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "Bookings <noreply@yourdomain.com>",
       to: data.email,
-      subject: `Reservation Confirmation - ${data.type === "hotel" ? "Hotel" : "Logistics"}`,
+      subject: `Reservation Confirmation - ${
+        data.type === "hotel" ? "Hotel" : "Logistics"
+      }`,
       html: `
         <h2>Hi ${data.name},</h2>
         <p>Your ${data.type} reservation has been received!</p>
@@ -34,9 +36,15 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true, reservation: newReservation });
-  } catch (error: any) {
-    console.error("Reservation error:", error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Unknown error occurred";
+    console.error("Reservation error:", message);
+
+    return NextResponse.json(
+      { success: false, error: message },
+      { status: 500 }
+    );
   }
 }
 
@@ -45,8 +53,12 @@ export async function GET() {
     await connectDB();
     const reservations = await Reservation.find().sort({ createdAt: -1 });
     return NextResponse.json({ success: true, reservations });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Unknown error occurred";
+    return NextResponse.json(
+      { success: false, error: message },
+      { status: 500 }
+    );
   }
 }
-
