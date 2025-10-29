@@ -1,33 +1,18 @@
-"use client"
-
+"use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { connectDB } from "@/lib/db";
-import { Product } from "@/models/Product";
 import ProductPurchase from "@/components/ProductPurchase";
 
-interface ProductClient {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  image?: string;
-}
+export default function ProductPage({ params }: { params: { id: string } }) {
+  const [product, setProduct] = useState<any>(null);
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
-  await connectDB();
+  useEffect(() => {
+    fetch(`/api/products/${params.id}`)
+      .then(res => res.json())
+      .then(data => setProduct(data));
+  }, [params.id]);
 
-  const productDoc = await Product.findById(params.id).lean();
-
-  if (!productDoc) return <p className="p-8">Product not found</p>;
-
-  // ✅ Transform _id → id and ensure correct typing
-  const product: ProductClient = {
-    id: productDoc._id.toString(),
-    name: productDoc.name,
-    price: productDoc.price,
-    description: productDoc.description,
-    image: productDoc.image || "/placeholder.jpg",
-  };
+  if (!product) return <p>Loading...</p>;
 
   return (
     <main className="min-h-screen p-6 bg-gray-50">
