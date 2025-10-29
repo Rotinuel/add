@@ -3,13 +3,32 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import ProductPurchase from "@/components/ProductPurchase";
 
+// ✅ Define the product type
+interface Product {
+  _id: string;
+  name: string;
+  price: number;
+  description?: string;
+  image?: string;
+}
+
 export default function ProductPage({ params }: { params: { id: string } }) {
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     fetch(`/api/products/${params.id}`)
-      .then(res => res.json())
-      .then(data => setProduct(data));
+      .then((res) => res.json())
+      .then((data) =>
+        // ✅ Normalize in case the backend returns "id" instead of "_id"
+        setProduct({
+          _id: data._id || data.id,
+          name: data.name,
+          price: data.price,
+          description: data.description,
+          image: data.image,
+        })
+      )
+      .catch((err) => console.error("Failed to fetch product:", err));
   }, [params.id]);
 
   if (!product) return <p>Loading...</p>;
@@ -29,6 +48,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           ₦{product.price.toLocaleString("en-NG")}
         </p>
         <p className="text-gray-700 mb-6">{product.description}</p>
+
+        {/* ✅ ProductPurchase now receives a properly typed product */}
         <ProductPurchase product={product} />
       </div>
     </main>
