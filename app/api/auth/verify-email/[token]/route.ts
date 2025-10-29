@@ -2,18 +2,11 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import { User } from "@/models/User";
 
-interface VerifyParams {
-  params: {
-    token: string;
-  };
-}
-
-// ✅ Correct function signature
 export async function GET(
   req: Request,
-  context: VerifyParams
+  { params }: { params: { token: string } }
 ) {
-  const { token } = context.params;
+  const { token } = params;
 
   await connectDB();
 
