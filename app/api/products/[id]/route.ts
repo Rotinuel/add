@@ -17,7 +17,6 @@ export async function GET(
   try {
     await connectDB();
 
-    // Explicitly typecast to ProductDoc | null
     const product = (await Product.findById(params.id).lean()) as ProductDoc | null;
 
     if (!product) {
@@ -37,10 +36,17 @@ export async function GET(
         image: product.image || "/placeholder.jpg",
       },
     });
-  } catch (error: any) {
-    console.error("Product fetch error:", error);
+  } catch (error) {
+    // ✅ Safe, ESLint-compliant error handling
+    const message =
+      error instanceof Error
+        ? error.message
+        : "An unexpected error occurred";
+
+    console.error("Product fetch error:", message);
+
     return NextResponse.json(
-      { success: false, message: "Server error", error: error.message },
+      { success: false, message: "Server error", error: message },
       { status: 500 }
     );
   }

@@ -115,3 +115,4 @@ export default function ProductPurchaseClient({ product }: ProductPurchaseClient
     </div>
   );
 }
+
