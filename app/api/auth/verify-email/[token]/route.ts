@@ -2,11 +2,8 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import { User } from "@/models/User";
 
-export async function GET(
-  req: Request,
-  { params }: { params: { token: string } }
-) {
-  const { token } = params;
+export async function GET(req: Request, context: any) {
+  const { token } = context.params;
 
   await connectDB();
 
