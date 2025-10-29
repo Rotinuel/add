@@ -4,8 +4,7 @@ import { User } from "@/models/User";
 
 
 export async function GET(
-  req: Request,
-  { params }: { params: { token: string } }
+  req: Request, { params }: { params: { token: string } }
 ) {
   try {
     await connectDB();
