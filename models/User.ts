@@ -1,10 +1,13 @@
 import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema({
-  name: String,
-  email: { type: String, unique: true, required: true },
-  phone: { type: String, unique: true, required: true},
-  password: String,
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  phone: { type: String, required: true },
+  password: { type: String, required: true },
+  isVerified: { type: Boolean, default: false },
+  verifyToken: String ,
+  verifyTokenExpiry: Date,
   role: { 
     type: [
         {

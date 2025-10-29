@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react";
 
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import Image from 'next/image';
 
 export default function AuthPage() {
@@ -32,214 +33,94 @@ export default function AuthPage() {
     setForm({ ...form, [name]: type === 'checkbox' ? checked : value });
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setMessage('');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
 
-  //   try {
-  //     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-  //     const res = await fetch(endpoint, {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(form),
-  //     });
+    try {
+      if (!isLogin) {
+        // Register user
+        const res = await fetch("/api/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            password: form.password,
+          }),
+        });
 
-  //     const data = await res.json();
-  //     if (!res.ok) throw new Error(data.message || 'Something went wrong');
-  //     if (data.user) {
-  //       localStorage.setItem("user", JSON.stringify(data.user));
-  //     }
-  //     if (isLogin) {
-  //       setMessage('Login successful!');
-  //       const role = data.user?.role || "user";
-  //       setTimeout(() => {
-  //         router.push(role === "admin" ? "/dashboard/admin" : "/dashboard");
-  //       }, 1000);
-  //     }
-  //     else {
-  //       setMessage('Registration successful!');
-  //       setTimeout(() => {
-  //         router.push("/login");
-  //       }, 1000);
-  //     }
-  //   } catch (err) {
-  //     if (err instanceof Error) {
-  //       setMessage(err.message);
-  //     } else {
-  //       setMessage('An unknown error occurred');
-  //     }
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
+        const data = await res.json();
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setMessage("");
-
-  //   const res = await signIn("credentials", {
-  //     redirect: false,
-  //     email: form.email,
-  //     password: form.password,
-  //   });
-
-  //   if (res?.error) {
-  //     setMessage(res.error);
-  //     setLoading(false);
-  //     return;
-  //   }
-
-  //   // ✅ Fetch session to get user role
-  //   const sessionRes = await fetch("/api/auth/session");
-  //   const session = await sessionRes.json();
-
-  //   if (session?.user?.role === "admin") {
-  //     router.push("/dashboard/admin");
-  //   } else {
-  //     router.push("/dashboard");
-  //   }
-
-  //   setLoading(false);
-  // };
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//   e.preventDefault();
-//   setLoading(true);
-//   setMessage("");
-
-//   try {
-//     // 1️⃣ Attempt login
-//     const res = await signIn("credentials", {
-//       redirect: false,
-//       email: form.email,
-//       password: form.password,
-//     });
-
-//     if (res?.error) {
-//       setMessage(res.error);
-//       setLoading(false);
-//       return;
-//     }
-
-//     // 2️⃣ Get the updated session
-//     const sessionRes = await fetch("/api/auth/session", { cache: "no-store" });
-//     const session = await sessionRes.json();
-
-//     // 3️⃣ Verify user + role
-//     if (!session?.user) {
-//       setMessage("Unable to fetch user session.");
-//       setLoading(false);
-//       return;
-//     }
-
-//     // 4️⃣ Redirect based on role
-//     if (session.user.role === "admin") {
-//       router.replace("/dashboard/admin"); // ✅ use replace() to avoid back navigation to login
-//     } else {
-//       router.replace("/dashboard");
-//     }
-
-//   } catch (error) {
-//     console.error(error);
-//     setMessage("Login failed, please try again.");
-//   } finally {
-//     setLoading(false);
-//   }
-// };
+      //   setMessage('Login successful!');
+      //   const role = data.user?.role || "user";
+      //   setTimeout(() => {
+      //     router.push(role === "admin" ? "/dashboard/admin" : "/dashboard");
+      //   }, 1000);
+      // } else {
+      //   // ✅ New verification redirect
+      //   setMessage('Registration successful! Please verify your email.');
+      //   setTimeout(() => {
+      //     router.push("/verify");
+      //   }, 1000);
 
 
-// const handleSubmit = async (e: React.FormEvent) => {
-//   e.preventDefault();
-//   setLoading(true);
-//   setMessage("");
+      //   if (!res.ok) {
+      //     toast.error("Registration failed");
+      //   } else {
+      //     toast.success("Registration successful! Please log in.");
+      //     setIsLogin(true); // Switch to login mode after successful signup
+      //   }
 
-//   const res = await signIn("credentials", {
-//     redirect: false,
-//     email: form.email,
-//     password: form.password,
-//   });
-
-//   if (res?.error) {
-//     setMessage(res.error);
-//     setLoading(false);
-//     return;
-//   }
-
-//   const sessionRes = await fetch("/api/auth/session");
-//   const session = await sessionRes.json();
-
-//   if (session?.user?.role === "admin") {
-//     router.push("/dashboard/admin");
-//   } else {
-//     router.push("/dashboard");
-//   }
-//   setLoading(false);
-// };
-
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
-  setMessage("");
-
-  try {
-    if (!isLogin) {
-      // ✅ Register user
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          password: form.password,
-        }),
-      });
-
-      const data = await res.json();
+      //   setLoading(false);
+      //   return;
+      // }
 
       if (!res.ok) {
-        setMessage(data.message || "Registration failed");
+        toast.error(data.message || "Registration failed");
       } else {
-        setMessage("✅ Registration successful! Please log in.");
-        setIsLogin(true); // Switch to login mode after successful signup
+        toast.success("Registration successful! Please verify your email.");
+        setMessage("Registration successful! Please verify your email.");
+        setTimeout(() => {
+          router.push("/verify");
+        }, 1500);
       }
 
       setLoading(false);
       return;
     }
 
-    // ✅ Handle Login (NextAuth)
-    const res = await signIn("credentials", {
-      redirect: false,
-      email: form.email,
-      password: form.password,
-    });
+      // ✅ Handle Login (NextAuth)
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: form.email,
+        password: form.password,
+      });
 
-    if (res?.error) {
-      setMessage(res.error);
+      if (res?.error) {
+        toast.error(res.error);
+        setLoading(false);
+        return;
+      }
+
+      // Get the session and redirect based on role
+      const sessionRes = await fetch("/api/auth/session");
+      const session = await sessionRes.json();
+
+      if (session?.user?.role === "admin") {
+        router.push("/dashboard/admin");
+      } else {
+        router.push("/dashboard");
+      }
+
+    } catch (error) {
+      toast.error("Something went wrong, please try again.");
+    } finally {
       setLoading(false);
-      return;
     }
-
-    // ✅ Get the session and redirect based on role
-    const sessionRes = await fetch("/api/auth/session");
-    const session = await sessionRes.json();
-
-    if (session?.user?.role === "admin") {
-      router.push("/dashboard/admin");
-    } else {
-      router.push("/dashboard");
-    }
-
-  } catch (error) {
-    console.error(error);
-    setMessage("Something went wrong, please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
 
   const handlePasswordReset = async (e: React.FormEvent) => {
@@ -255,14 +136,14 @@ const handleSubmit = async (e: React.FormEvent) => {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Error sending reset link');
-      setMessage('Password reset link sent to your email.');
+      toast.success('Password reset link sent to your email.');
       setShowReset(false);
       setResetEmail('');
     } catch (err) {
       if (err instanceof Error) {
-        setMessage(err.message);
+        toast.error(err.message);
       } else {
-        setMessage('An unknown error occured')
+        toast.error('An unknown error occured')
       }
     }
   };

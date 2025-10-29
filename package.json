@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "email": "email dev"
+    "lint": "eslint"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.6",
@@ -16,6 +15,7 @@
     "add": "^2.0.6",
     "bcryptjs": "^3.0.2",
     "bun": "^1.2.23",
+    "crypto": "^1.0.1",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.544.0",
     "mongodb": "^6.20.0",
