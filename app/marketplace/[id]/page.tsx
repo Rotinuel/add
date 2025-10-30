@@ -1,9 +1,6 @@
-"use client";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import ProductPurchase from "@/components/ProductPurchase";
 
-// ✅ Define the product type
 interface Product {
   _id: string;
   name: string;
@@ -12,26 +9,21 @@ interface Product {
   image?: string;
 }
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const [product, setProduct] = useState<Product | null>(null);
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params; // ✅ unwrap the Promise (Next.js 15+)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`, {
+    cache: "no-store",
+  });
 
-  useEffect(() => {
-    fetch(`/api/products/${params.id}`)
-      .then((res) => res.json())
-      .then((data) =>
-        // ✅ Normalize in case the backend returns "id" instead of "_id"
-        setProduct({
-          _id: data._id || data.id,
-          name: data.name,
-          price: data.price,
-          description: data.description,
-          image: data.image,
-        })
-      )
-      .catch((err) => console.error("Failed to fetch product:", err));
-  }, [params.id]);
+  const data = await res.json();
+  const product = data?.product as Product | null;
 
-  if (!product) return <p>Loading...</p>;
+  if (!product)
+    return <p className="p-8 text-center text-gray-600">Product not found</p>;
 
   return (
     <main className="min-h-screen p-6 bg-gray-50">
@@ -48,8 +40,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           ₦{product.price.toLocaleString("en-NG")}
         </p>
         <p className="text-gray-700 mb-6">{product.description}</p>
-
-        {/* ✅ ProductPurchase now receives a properly typed product */}
         <ProductPurchase product={product} />
       </div>
     </main>
