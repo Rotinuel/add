@@ -1,10 +1,10 @@
 "use client";
 
+import { Suspense, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
 import { toast } from "sonner";
 
-export default function VerifyPage() {
+function VerifyPageContent() {
   const params = useSearchParams();
   const router = useRouter();
   const token = params.get("token");
@@ -29,5 +29,13 @@ export default function VerifyPage() {
       <h2 className="text-2xl font-semibold">Verifying your email...</h2>
       <p className="text-gray-500 mt-2">Please wait a moment.</p>
     </div>
+  );
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={<div className="text-center p-6">Loading...</div>}>
+      <VerifyPageContent />
+    </Suspense>
   );
 }
