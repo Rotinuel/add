@@ -2,22 +2,26 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import { Product } from "@/models/Product";
 
+// ✅ Define the product type
 interface ProductDoc {
   _id: string;
   name: string;
   price: number;
-  description: string;
+  description?: string;
   image?: string;
 }
 
+// ✅ Correct handler signature for App Router
 export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
+  request: Request,
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await context.params; // 👈 Important: await the params
+
     await connectDB();
 
-    const product = (await Product.findById(params.id).lean()) as ProductDoc | null;
+    const product = (await Product.findById(id).lean()) as ProductDoc | null;
 
     if (!product) {
       return NextResponse.json(
@@ -26,18 +30,16 @@ export async function GET(
       );
     }
 
+    // ✅ Return normalized product object
     return NextResponse.json({
       success: true,
-      product: {
-        id: product._id.toString(),
-        name: product.name,
-        price: product.price,
-        description: product.description,
-        image: product.image || "/placeholder.jpg",
-      },
+      _id: product._id.toString(),
+      name: product.name,
+      price: product.price,
+      description: product.description,
+      image: product.image || "/placeholder.jpg",
     });
   } catch (error) {
-    // ✅ Safe, ESLint-compliant error handling
     const message =
       error instanceof Error
         ? error.message
